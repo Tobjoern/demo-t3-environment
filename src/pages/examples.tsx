@@ -21,6 +21,12 @@ export default function Examples() {
 
   return (
     <div className="p-4">
+      {getExamplesQuery.isLoading && <div>Loading...</div>}
+
+      {getExamplesQuery.isFetching && <div>Refetching...</div>}
+
+      {deleteExampleMutation.isLoading && <div>Deleting example...</div>}
+
       {getExamplesQuery.isSuccess &&
         getExamplesQuery.data.map((example) => (
           <div key={example.id} className="mb-4 rounded-xl bg-gray-200 p-4">
